@@ -80,25 +80,20 @@ Verify these in the Microsoft 365 admin center[](https://admin.microsoft.com/) u
 ## Step 4: Run the PowerShell Script During OOBE
 
 1. At the OOBE screen (e.g., region or language selection), press **Shift + F10** (or **Shift + Fn + F10** on some Dell laptops) to open a Command Prompt.
-2. Type `powershell` and press **Enter** to start a PowerShell session. If the PowerShell prompt does not appear immediately, press **Enter** again to display the prompt.
-3. List available volumes to identify the USB drive:
+2. Make sure to click in the prompt to get focus on the window so you can input your commands.
+3. Identify the USB drive letter (e.g., `D:`) by running:
 
    ```powershell
    Get-Volume
    ```
 
-4. Look for the volume with `DriveType` listed as `Removable`. In this example, assume it’s `D:`.
-5. Navigate to the USB drive:
+4. Execute the PowerShell script using the drive letter acquired in the previous step:
 
    ```powershell
-   cd D:
+   powershell.exe -ExecutionPolicy Bypass -File [drive letter]:\AutoPilotRegister.ps1
    ```
 
-6. Run the PowerShell script:
-
-   ```powershell
-   .\AutoPilotRegister.ps1
-   ```
+   Replace `[drive letter]` with the removable drive letter identified in Step 4, item 3 (e.g., `D:` if `Get-Volume` shows it as `D:`).
 
 7. A pop-up will prompt for your Microsoft account credentials:
    - Enter your admin username (e.g., `admin@yourdomain.com`).
