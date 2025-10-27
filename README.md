@@ -73,9 +73,9 @@ Verify these in the Microsoft 365 admin center[](https://admin.microsoft.com/) u
 8. Choose **Custom: Install Windows only (advanced)**.
 9. Select the target drive (this will erase all data) and click **Next**.
 10. The installation will proceed, restarting the laptop several times.
-11. After installation, the laptop will enter the **Out-of-Box Experience (OOBE)**
-    - In case the hardware hash of the laptop is **already registered with Autopilot**, the installation will never display the region selection screen and will just continue automatically with the laptop provisioning process. **No need to continue further steps of this guide.**
-    - In case the device is **not yet registered with Autopilot** and you are presented with the **region selection screen**, **continue to Step 4.**
+11. After installation, the laptop will enter the **Out-of-Box Experience (OOBE)**.
+    - If the hardware hash of the laptop is **already registered with Autopilot**, the installation will skip the region selection screen and proceed automatically with the laptop provisioning process. **No need to continue further steps of this guide.**
+    - If the device is **not yet registered with Autopilot** and you see the **region selection screen**, **proceed to Step 4.**
 
 ## Step 4: Run the PowerShell Script During OOBE
 
