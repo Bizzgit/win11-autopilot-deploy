@@ -40,7 +40,8 @@ This guide provides step-by-step instructions to create a bootable Windows 11 US
    # Run the Get-WindowsAutoPilotInfo script to register the device with Autopilot
    Get-WindowsAutoPilotInfo -Online
    ```
-9. Save the file by clicking File > Save (or press Ctrl + S). Confirm in File Explorer that the file is named `AutoPilotRegister.ps1` (not AutoPilotRegister.ps1.txt).
+
+9. Save the file by clicking **File** > **Save** (or press **Ctrl + S**). Confirm in File Explorer that the file is named `AutoPilotRegister.ps1` (not `AutoPilotRegister.ps1.txt`).
 10. Safely eject the USB drive.
 
 ## Step 3: Install Windows 11 and Enter OOBE
@@ -55,7 +56,9 @@ This guide provides step-by-step instructions to create a bootable Windows 11 US
 8. Choose **Custom: Install Windows only (advanced)**.
 9. Select the target drive (this will erase all data) and click **Next**.
 10. The installation will proceed, restarting the laptop several times.
-11. After installation, the laptop will enter the **Out-of-Box Experience (OOBE)**, starting with the region selection screen.
+11. After installation, the laptop will enter the **Out-of-Box Experience (OOBE)**
+    - In case the hardware hash of the laptop is **already registered with Autopilot**, the installation will never display the region selection screen and will just continue automatically with the laptop provisioning process. **No need to continue further steps of this guide.**
+    - In case the device is **not yet registered with Autopilot** and you are presented with the **region selection screen**, **continue to Step 4.**
 
 ## Step 4: Run the PowerShell Script During OOBE
 
@@ -105,6 +108,6 @@ This guide provides step-by-step instructions to create a bootable Windows 11 US
    ```
 
 2. Press **Enter** to restart the laptop.
-3. Since the device is now registered with its hardware hash in Intune Autopilot, it will automatically walk through the OOBE process, applying your organization’s Autopilot configuration (e.g., joining Intune, installing apps, applying policies).
+3. Next time it will automatically walk through the OOBE process, applying your organization’s Autopilot configuration (e.g., joining Intune, installing apps, applying policies).
 
 This completes the process. Your Dell laptop is now installed with Windows 11 and registered with Intune Autopilot, ready for automated setup.
