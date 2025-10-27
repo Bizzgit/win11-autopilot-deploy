@@ -2,6 +2,23 @@
 
 This guide provides step-by-step instructions to create a bootable Windows 11 USB drive using the Media Creation Tool, install Windows 11 on a Dell laptop, and register the device with Microsoft Intune Autopilot during the Out-of-Box Experience (OOBE) by running a PowerShell script from the USB drive. The process uses your Microsoft account credentials to upload the device’s hardware hash to Intune, enabling automatic OOBE configuration via Autopilot.
 
+## Prerequisites
+
+Before beginning this guide, ensure the following prerequisites are met to successfully install Windows 11 and register the device with Microsoft Intune Autopilot:
+
+- **Microsoft Entra ID (Azure AD) Tenant**: You must have an active Microsoft Entra ID tenant (formerly Azure AD). This is required for device registration and automatic enrollment during Autopilot provisioning.
+- **Licenses**:
+  - **Admin Account**: An Intune Administrator or Global Administrator account with Microsoft Entra ID Premium P1 (or higher) and Microsoft Intune licenses. This allows the admin to upload hardware hashes and configure Autopilot.
+  - **User Licenses**: Each end-user who will enroll devices needs a Microsoft Entra ID Premium P1 (or higher) license for automatic MDM enrollment, plus an Intune license (often bundled in Microsoft 365 E3/E5 or Enterprise Mobility + Security plans). These are required for device join and management.
+- **Intune and Autopilot Configuration**: Windows Autopilot must be enabled and configured in the Microsoft Intune admin center[](https://endpoint.microsoft.com/). This includes setting up automatic MDM enrollment (under Devices > Enroll devices > Automatic enrollment) and creating deployment profiles if needed.
+- **Device Requirements**: The Dell laptop must meet Windows 11 hardware requirements (e.g., TPM 2.0, Secure Boot, compatible CPU) and have internet access during OOBE for hardware hash upload and provisioning.
+- **Other Recommendations** (not required but helpful):
+  - Microsoft 365 Apps for enterprise license for easy app deployment via Intune.
+  - Windows Enterprise edition (via subscription activation) for advanced features like disabling consumer experiences.
+  - Access to the Intune Connector for Active Directory if using hybrid Entra ID join (for on-premises AD integration).
+
+Verify these in the Microsoft 365 admin center[](https://admin.microsoft.com/) under Billing > Licenses and the Intune admin center under Tenant administration > Roles.
+
 ## Step 1: Create a Bootable Windows 11 USB Drive
 
 1. On a Windows PC, open a web browser and go to [https://www.microsoft.com/en-us/software-download/windows11](https://www.microsoft.com/en-us/software-download/windows11).
